@@ -1,0 +1,30 @@
+USE:
+python sniffer.py 
+
+DESCRIPTION:
+This script capture, anonimize y cipher network packets following the configuration provided in 'config.ini'. 
+Can be configurated to execute as a service and supports different protocols, anonymity modes, and cipher modes.
+
+CONFIGURATION:
+Configuration is done via the 'config.ini' file. The following options are described:
+
+[General]
+- Mode:        Anonimation mode for Ipv4 ('map', 'hash', 'zero').
+- Header:      Erase payload from the spcedicifed protocols  ('none', 'ip', 'ipv6', 'network', 'tcp', 'udp', 'icmp', 'transport', 'dns').
+- Interface:   Especifies network interface (example: 'eth0').
+- MacMode:     Anonimation mode for MAC ('map', 'hash', 'zero').
+- IPv6Mode:    Anonimation mode for IPv6 ('map', 'hash', 'zero').
+- Timeout:     Time limit for capture (ejemplo: '5D', '2H', '30M', '5D2H').
+- TotalPackages: Total limit of packets to be captured.
+- TotalLenght: Total limit of data in bytes to be captured ('5K', '8.9M', '100.25G').
+- PackagesPcap: Package limit per pcap file.
+- RotateTime:  Time to rotate pcap files ('5D', '2H', '30M', '5D2H).
+- BPF:         BPF filter for packet capture.
+- Size:        Maximum size of each pcap file  ('5K', '8.9M', '100.25G').
+- Protocols:   Protocolos to anonimize ('IP', 'IPv6', 'MAC').
+- Cipher:      Type of cipher ('none', 'ZIP', 'GPG').
+- GPGKey:      Public key for GPG encryption (only if Cipher='GPG').
+- ZipKey:      ZIP encryption password (only if Cipher='ZIP').
+- HashIpv4:    Hashing key for IPv4 (only if Mode=hash).
+- HashMAC:     Hashing key for MAC (only if MacMode=hash).
+- HashIPv6:    Hashing key for MAC (only if Ipv6Mode=hash).
